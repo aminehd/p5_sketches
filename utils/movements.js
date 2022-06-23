@@ -131,4 +131,29 @@ moves.calculate_inverse = function(p5, inverse_center, current_point, r){
 }
 
 
+// doesn't gather any state
+
+moves.double_turn = function(p5_drawer, center1, center2, shape_func, degree1, degree2){
+     //rotate arround itself 
+    push()
+
+    //   translate(center1.x , center1.y )
+    //   rotate(degree1 )
+    //   square(0, 0, 4)
+    rotate(degree1)
+    translate( radius1.x, radius1.y) //the distance to the first center 
+    //   square(0, 0, 4)
+    rotate(degree2)
+    translate(radius2.x, radius2.y)
+    //   scale(osilate(degree1, sqrt(2)))
+    fill(256, 256, 256);
+    square(0, 0, square_size );
+    pop()
+    noFill(0, 0, 0);
+    //   square(0, 0, 4)
+ 
+ 
+   
+}
+
 export default moves;
