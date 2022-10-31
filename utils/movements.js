@@ -30,11 +30,15 @@ moves.osilate = function(p5, total_frame_per_loop) {
 }
 
 
-moves.ease = function( p,  g) {
-    if (p < 0.5)
-      return 0.5 * Math.pow(2*p, g);
-    else
-      return 1 - 0.5 * Math.pow(2*(1 - p), g);
+moves.ease = function( p,  g=null) {
+  if (g == null){
+  
+    return  3*p*p - 2*p*p*p; //begining and end are 0 and 1, speed is 0 
+  }
+  if (p < 0.5)
+    return 0.5 * Math.pow(2*p, g);
+  else
+    return 1 - 0.5 * Math.pow(2*(1 - p), g);
   }
 moves.wave = function(p5) {
   let t = 1.0 *  (p5.current_frame-1)/p5.n_frames;
@@ -155,5 +159,20 @@ moves.double_turn = function(p5_drawer, center1, center2, shape_func, degree1, d
  
    
 }
+moves.rotate_double_relative = function(p5, main_degree,relative_degree , main_center_x, main_center_y, relative_x, relative_y){
+    p5.translate(main_center_x , main_center_y )
+    p5.rotate(main_degree) // rotate ariund designated center
+    p5.translate( relative_x, relative_y) //the distance to the first center
+    p5.rotate(relative_degree) // rotate around relative
+}
 
+moves.sacepe_from_center = function(p5, d1, d2,  c_x, c_y, halfEdge, r1, r2, shape) {
+    p5.push()
+    moves.rotate_double_relative(p5, d1, d2, c_x, c_y, -1 * halfEdge * r1, -1 * halfEdge * r2)
+    //   square(0, 0, 4)
+    p5.fill(0, 0, 0)
+    shape(-1 * halfEdge, -1 * halfEdge)
+    p5.pop()
+
+}
 export default moves;

@@ -1,4 +1,4 @@
-import moves from "./utils/movements.js"
+import moves from "../utils/movements.js"
 // let examplePackage = require('ccapture');
 var canvas
 // Create a capturer that exports an animated GIF
@@ -34,6 +34,10 @@ let sketch =  new p5(function(p5){
                 p5.circle(100, 100, 100)
                 let t = 1.0 *  (p5.current_frame-1)/p5.n_frames;
 		p5.background(255, 255, 255)
+                i = 200
+                for (let j = 0; i < p5.w; j++) {
+                    p5.point(i, j)
+                }
 	};
 });
 
