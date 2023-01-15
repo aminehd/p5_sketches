@@ -37,7 +37,22 @@
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "yarn install"
-
+	
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
+	// 	install http server and permissione issue (install globally, add npm-global to path)
+
+	// 	install http-server globally
+
+	// 	npm install http-server -g
+
+	// 	nvm use --delete-prefix v17.3.0 --silent
+
+	// 	**export** PATH=~/.npm-global/bin:$PATH
+
+	// 	js code not refreshing: ctr + f5, or ctr and click on refresh
+
+	// 	try both host server says to load, one might be faster 
+
+	// 	[http://127.0.0.1:8080](http://127.0.0.1:8080/) [http://172.31.74.143:8080](http://172.31.74.143:8080/)
 }
